@@ -1,6 +1,6 @@
 import React from "react";
 import { ContactItem } from "./ContactItem";
-import { contacts } from "./type";
+import { contacts } from "../type";
 
 function ContactList({ contacts }: { contacts: contacts }) {
   return (
