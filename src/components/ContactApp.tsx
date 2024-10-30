@@ -5,11 +5,16 @@ import { contacts } from "../type";
 import "../styles/style.css";
 
 function ContactApp() {
-  const contacts: contacts = getData();
+  const rawContacts: contacts = getData();
+  const [contacts, setContacts] = React.useState<contacts>(rawContacts);
+  function deleteContact(id: number) {
+    const filteredContacts = contacts.filter((contact) => contact.id !== id);
+    setContacts(filteredContacts);
+  }
   return (
     <div className="contact-app">
       <h1>Daftar Kontak</h1>
-      <ContactList contacts={contacts} />
+      <ContactList contacts={contacts} onDelete={deleteContact} />
     </div>
   );
 }
